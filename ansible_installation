@@ -1,0 +1,49 @@
+#launch two instances (ubuntu)
+1. ansible_masternode
+2. ansible_workernode
+
+1. ansibel_masternode
+create ssh keypair "ssh-keygen"
+copy public key And paste to worker node .ssh/authorized_keys file
+Install ansible on master node "sudo apt-add-repository ppa:ansible/ansible"
+"sudo apt update"
+"sudo apt install ansible"
+ansible --version
+set up inventory file
+
+#sudo nano /etc/ansible/hosts
+private-ip of worker nodes
+
+#edit ansible.cfg
+#paste following code on that file
+[defaults]
+inventory = hosts
+host_key_checking = False
+
+2.ansible_workernode
+copy public key of ansible_masternode And paste to worker node .ssh/authorized_keys file.
+
+#ping all nodes to test connection
+"ansible all -m ping"
+
+#create playbook.yaml file
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: update
+      apt: update_cache=yes
+
+    - name: Install Nginx
+      apt: name=nginx state=latest
+
+      notify:
+        - restart nginx
+
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=reloaded
+
+
+#run playbook
+ansible-playbook nginx.yaml

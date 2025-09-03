@@ -83,3 +83,8 @@ EOF
 sudo systemctl daemon-reexec
 sudo systemctl start prometheus
 sudo systemctl enable prometheus
+
+sudo apt-get && sudo apt-add-repository ppa:ansible/ansible
+
+sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+

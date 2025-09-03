@@ -1,0 +1,58 @@
+1. Java - 21
+
+- name: Install Java 21
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Java on Ubuntu/Debian
+      apt:
+        name: openjdk-21-jdk
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Install Java on RedHat/CentOS
+      yum:
+        name: java-21-openjdk-devel
+        state: present
+      when: ansible_os_family == "RedHat"
+
+2. git
+
+- name: Install Git
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Git on Ubuntu/Debian
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Install Git on RedHat/CentOS
+      yum:
+        name: git
+        state: present
+      when: ansible_os_family == "RedHat"
+
+3. Nginx
+
+- hosts: all
+  become: yes
+  tasks:
+
+    - name: update
+      apt: update_cache=yes
+
+    - name: Install Nginx
+      apt: name=nginx state=latest
+
+      notify:
+        - restart nginx
+
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=reloaded
+
+4.

@@ -1,0 +1,14 @@
+sudo apt update -y
+sudo apt-get install docker.io -y
+sudo systemctl start docker
+sudo usermod -aG docker ubuntu
+newgrp docker
+sudo chmod 777 /var/run/docker.sock
+
+docker pull sonarqube:lts-community
+docker pull grafana/grafana
+docker pull prom/prometheus
+
+docker run -itd --name sonar -p 9000:9000 soanqube:lts-community
+docker run -itd --name grafana -p 3000:3000 grafana/grafana
+docker run -itd --name prometheus -p 9090:9090 prom/prometheus

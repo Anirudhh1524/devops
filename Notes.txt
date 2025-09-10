@@ -1,0 +1,20 @@
+{
+    "Version": "2008-10-17",
+    "Id": "PolicyForCloudFrontPrivateContent",
+    "Statement": [
+        {
+            "Sid": "AllowCloudFrontServicePrincipal",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "cloudfront.amazonaws.com"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::myamazon1524/*",
+            "Condition": {
+                "ArnLike": {
+                    "AWS:SourceArn": "arn:aws:cloudfront::109249931219:distribution/E2BC9KW1HFWKOT"
+                }
+            }
+        }
+    ]
+}

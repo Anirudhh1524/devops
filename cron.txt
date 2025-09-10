@@ -1,0 +1,19 @@
+install cronie
+#sudo apt install cronie -y
+
+to check crontab
+#crontab -l
+
+to setup new crontab
+#crontab -e
+
+select editors vim nano or etc
+open crontab file
+write job
+suppose 1.you want to run "#sudo apt update -y" every minute
+                "1 * * * * sudo apt update -y"
+
+
+
+ 
+

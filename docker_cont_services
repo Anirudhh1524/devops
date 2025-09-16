@@ -12,3 +12,51 @@ docker pull prom/prometheus
 docker run -itd --name sonar -p 9000:9000 soanqube:lts-community
 docker run -itd --name grafana -p 3000:3000 grafana/grafana
 docker run -itd --name prometheus -p 9090:9090 prom/prometheus
+
+
+Using Docker Compose on Ubuntu is a powerful way to manage multi-container applications with ease.
+🛠️ Step-by-Step: Install & Use Docker Compose on Ubuntu
+
+#### 1. **Install Docker Engine**
+Before using Docker Compose, you need Docker itself:
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+docker --version
+
+#### 2. **Install Docker Compose**
+There are two main ways to install Docker Compose:
+
+##Using Ubuntu Repositories**:
+sudo apt install docker-compose
+
+##Using Docker’s Official GitHub Release**
+sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
+#### 3. **Create a `docker-compose.yml` File**
+using a following format
+
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: example
+
+
+#### 4. **Run Docker Compose**
+#Start your services with:
+docker-compose up
+
+#To run in detached mode:
+docker-compose up -d
+
+#Stop services with:
+docker-compose down
+
+

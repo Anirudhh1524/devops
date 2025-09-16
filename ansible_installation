@@ -27,23 +27,148 @@ copy public key of ansible_masternode And paste to worker node .ssh/authorized_k
 "ansible all -m ping"
 
 #create playbook.yaml file
+
 - hosts: all
   become: yes
   tasks:
-
     - name: update
       apt: update_cache=yes
-
     - name: Install Nginx
       apt: name=nginx state=latest
-
       notify:
         - restart nginx
-
   handlers:
     - name: restart nginx
       service: name=nginx state=reloaded
 
-
 #run playbook
 ansible-playbook nginx.yaml
+
+
+
+# how to install role and collections
+ansible-galaxy role install rolename                   (eg.geerlingguy.apache, 0ta2.git_role,sonarqube etc)
+ansible-galaxy collection install communityname        (eg.community.general,ansible.posix)
+
+#how to create New Role
+ansible-galaxy init my_new_role
+
+#List Installed Roles or Collections
+ansible-galaxy role list
+ansible-galaxy collection list
+
+#how to remove role
+ansible-galaxy role remove geerlingguy.apache
+
+#Install from a Requirements File 
+create file requirements.yaml using following formats
+
+roles:
+  - name: geerlingguy.apache
+collections:
+  - name: community.general
+
+#run requiremets file
+ansible-galaxy install -r requirements.yaml
+
+#if you want search any role use following command
+ansible-galaxy role search nginx
+
+#How do I write a playbook using a Galaxy role
+create playbook using following format
+
+- name: Set up Apache using Galaxy role
+  hosts: webservers
+  become: yes
+   roles:
+    - geerlingguy.apache
+
+#if you want changes port and some other data use following formats
+
+- name: Set up Apache with custom config
+  hosts: webservers
+  become: yes
+  vars:
+    apache_listen_port: 8080
+    apache_create_vhosts: true
+    apache_vhosts:
+      - servername: "example.com"
+        documentroot: "/var/www/example"
+  roles:
+    - geerlingguy.apache
+
+
+#execute your playbook using following command
+ansible-playbook -i hosts playbookname.yaml
+
+🎭 What Is a Role?
+A role is a modular unit of automation. 
+It’s like a recipe that includes tasks, variables, templates, handlers, and more—all bundled together to perform a specific function
+
+🧰 What Is a Collection?
+A collection is a larger package that can include:
+- Multiple roles
+- Modules
+- Plugins
+- Playbooks
+- Documentation
+
+### 🧱 Infrastructure & OS Management
+
+| Collection Name         | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `community.general`     | A massive collection of general-purpose roles and modules for Linux, filesystems, users, etc. |
+| `ansible.posix`         | Tools for managing POSIX-compliant systems (cron, sysctl, SELinux, etc.)    |
+| `ansible.windows`       | Modules and roles for automating Windows systems                            |
+
+---
+
+### ☁️ Cloud Providers
+
+| Collection Name         | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `amazon.aws`            | Manage AWS services like EC2, S3, IAM, RDS, etc.                            |
+| `google.cloud`          | Automate Google Cloud Platform resources                                    |
+| `azure.azcollection`    | Azure resource management and deployment                                    |
+
+---
+
+### 🛡️ Network & Security
+
+| Collection Name         | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `cisco.ios`             | Manage Cisco IOS devices                                                    |
+| `fortinet.fortios`      | Automate FortiGate firewall configuration                                   |
+| `junipernetworks.junos` | Modules and roles for Juniper devices                                       |
+
+---
+
+### 🧪 Monitoring & DevOps
+
+| Collection Name         | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `community.docker`      | Manage Docker containers, images, volumes                                   |
+| `sensu.sensu_go`        | Monitor infrastructure using Sensu Go                                       |
+| `grafana.grafana`       | Automate dashboards and data sources in Grafana                             |
+
+---
+
+### 🧰 Miscellaneous & Utilities
+
+| Collection Name         | Description                                                                 |
+|-------------------------|-----------------------------------------------------------------------------|
+| `community.crypto`      | Manage SSL certificates, keys, and PKI infrastructure                       |
+| `community.kubernetes`  | Interact with Kubernetes clusters                                           |
+| `pureport.pureport`     | Manage Pureport network services                                            |
+
+
+### 🆚 Roles vs Collections
+
+| Feature            | Role                          | Collection                          |
+|--------------------|-------------------------------|--------------------------------------|
+| Scope              | Single-purpose automation     | Multi-purpose toolkit                |
+| Content            | Tasks, templates, vars        | Roles, plugins, modules, playbooks   |
+| Distribution       | Via Ansible Galaxy            | Via Galaxy or Automation Hub         |
+| Use in Playbooks   | `roles:` section              | Fully Qualified Collection Name (FQCN) |
+
+

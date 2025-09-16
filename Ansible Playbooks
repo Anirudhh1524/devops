@@ -55,4 +55,15 @@
     - name: restart nginx
       service: name=nginx state=reloaded
 
-4.
+4.copy files
+
+- name: Copy a file to remote host
+  hosts: all
+  tasks:
+    - name: Copy nginx config
+      ansible.builtin.copy:
+        src: /local/path/nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: '0644'

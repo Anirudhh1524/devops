@@ -67,3 +67,21 @@
         owner: root
         group: root
         mode: '0644'
+
+5. Fixed Format For All Packeges
+
+---
+- name: Install a package on Ubuntu
+  hosts: all
+  become: yes
+  vars:
+    package_name: git
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+    - name: Install the package "{{ git }}"
+      apt:
+        name: "{{ git }}"
+        state: latest
+

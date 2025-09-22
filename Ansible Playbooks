@@ -85,3 +85,10 @@
         name: "{{ git }}"
         state: latest
 
+6. Using Role : Playbook format
+
+---
+- hosts: webservers               (eg. all/ipadress/localost) #whatever
+  become: yes
+  roles:
+    - nginx_setup                 ( give existing role name in system then Save & Run )

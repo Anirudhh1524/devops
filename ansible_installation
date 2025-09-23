@@ -45,22 +45,27 @@ copy public key of ansible_masternode And paste to worker node .ssh/authorized_k
 ansible-playbook nginx.yaml
 
 
+                                                                       Ansible Role Commands
 
-# how to install role and collections
+
+
+1. how to install role and collections
+
 ansible-galaxy role install rolename                   (eg.geerlingguy.apache, 0ta2.git_role,sonarqube etc)
 ansible-galaxy collection install communityname        (eg.community.general,ansible.posix)
 
-#how to create New Role
+2.how to create New Role
 ansible-galaxy init my_new_role
 
-#List Installed Roles or Collections
+3.List Installed Roles or Collections
+
 ansible-galaxy role list
 ansible-galaxy collection list
 
-#how to remove role
+4.how to remove role
 ansible-galaxy role remove geerlingguy.apache
 
-#Install from a Requirements File 
+5.Install from a Requirements File 
 create file requirements.yaml using following formats
 
 roles:
@@ -68,13 +73,13 @@ roles:
 collections:
   - name: community.general
 
-#run requiremets file
+5.run requiremets file
 ansible-galaxy install -r requirements.yaml
 
-#if you want search any role use following command
+6.if you want search any role use following command
 ansible-galaxy role search nginx
 
-#How do I write a playbook using a Galaxy role
+7.How do I write a playbook using a Galaxy role
 create playbook using following format
 
 - name: Set up Apache using Galaxy role
@@ -83,7 +88,7 @@ create playbook using following format
    roles:
     - geerlingguy.apache
 
-#if you want changes port and some other data use following formats
+8.if you want changes port and some other data use following formats
 
 - name: Set up Apache with custom config
   hosts: webservers
@@ -98,8 +103,11 @@ create playbook using following format
     - geerlingguy.apache
 
 
-#execute your playbook using following command
+9.execute your playbook using following command
 ansible-playbook -i hosts playbookname.yaml
+
+
+                                                                                  NOTES
 
 🎭 What Is a Role?
 A role is a modular unit of automation. 

@@ -1,0 +1,52 @@
+Blue-Green and Canary deployments are **strategies used in software release management** to reduce downtime and risk when deploying new versions of applications. 
+
+ 🔵🟢 Blue-Green Deployment
+
+Concept:
+Maintain two identical environments — **Blue** (current production) 
+                                      **Green** (new version).
+
+- **How it works:**
+  - Blue is live and serving users.
+  - Green is updated with the new version and tested.
+  - Once verified, traffic is switched from Blue to Green.
+  - If issues arise, rollback is easy by switching back to Blue.
+
+- **Benefits:**
+  - Zero downtime
+  - Easy rollback
+  - Safe testing in production-like environment
+
+- **Use case:** 
+Ideal for major updates where you want full control over switching environments.
+
+
+
+🐤 Canary Deployment
+
+**Concept:** Gradually roll out the new version to a small subset of users before full deployment.
+
+- **How it works:**
+  - A small percentage of users (the "canaries") get the new version.
+  - Monitor performance, errors, and user feedback.
+  - If stable, increase rollout to more users until full deployment.
+  - If problems occur, rollback affects only a small group.
+
+- **Benefits:**
+  - Early detection of issues
+  - Controlled risk
+  - Real-world testing with real users
+
+- **Use case:**
+Perfect for frequent updates or when you want to test new features incrementally.
+
+### 🧠 Quick Comparison
+
+| Feature             | Blue-Green Deployment | Canary Deployment       |
+|---------------------|------------------------|--------------------------|
+| Rollout Style       | All-at-once switch     | Gradual rollout          |
+| Risk Level          | Low (easy rollback)    | Very low (small exposure)|
+| Infrastructure Need | Two full environments  | One environment with routing logic |
+| Monitoring          | Before switch          | During rollout           |
+
+

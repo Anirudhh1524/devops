@@ -53,4 +53,29 @@ sudo systemctl enable prometheus
 
 
 
+                                                                         *  Most Used PromQL Expressions *
+
+
+| ----------------------------------------------------------------------------------------------------------------------
+|Expression                          | Purpose                          | Example                                       |
+|-------------------------------------|----------------------------------|----------------------------------------------|
+| http_requests_total                 | Basic metric selection           | Shows all time series for HTTP requests      |
+| http_requests_total{status="500"}   | Label filtering                  | Filters requests with 500 status code        |
+| rate(metric_name[5m])               | Calculates per-second rate over time | rate(http_requests_total[5m])            |
+| sum(rate(metric_name[5m])) by (label) | Aggregates rates by label      | sum(rate(http_requests_total[5m])) by (status)|
+| avg_over_time(metric_name[5m])      | Average over time range          | Useful for smoothing noisy metrics           |
+| max_over_time(metric_name[1h])      | Maximum value in time range      | Detects spikes                               |
+| node_memory_MemTotal_bytes -        | Arithmetic                       | Calculates used memory                       |
+| (A > 100) and (B < 50)              | Logical comparison               | Combines conditions                          |
+| up == 0                             | Service health check             | Detects if a target is down                  |
+-------------------------------------------------------------------------------------------------------------------------
+
+### Tips for Using PromQL Effectively
+- Use rate() for counters that only increase.
+- Use irate() for short-term spikes.
+- Combine sum() and by() to group metrics meaningfully.
+- Use label filters to narrow down noisy metrics.
+- Use offset to compare current vs. past values.
+
+
 

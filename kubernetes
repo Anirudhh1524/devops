@@ -1,0 +1,215 @@
+
+ 🧱 1. Pod Manifest
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sample-pod
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx
+    ports:
+    - containerPort: 80
+
+
+
+🔁 2. ReplicationController
+
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: sample-rc
+spec:
+  replicas: 2
+  selector:
+    app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
+
+ 📦 3. ReplicaSet
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: sample-rs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+
+
+
+ 🚀 4. Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+
+
+
+🧭 5. DaemonSet
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: sample-daemonset
+spec:
+  selector:
+    matchLabels:
+      app: monitoring
+  template:
+    metadata:
+      labels:
+        app: monitoring
+    spec:
+      containers:
+      - name: monitoring-agent
+        image: monitoring-agent:latest
+
+
+
+ 🗃️ 6. StatefulSet
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: sample-statefulset
+spec:
+  serviceName: "nginx"
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 1Gi
+
+
+
+🌐 7. Ingress
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: sample-ingress
+spec:
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: sample-service
+            port:
+              number: 80
+
+
+
+ 📈 8. Horizontal Pod Autoscaler (HPA)
+
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: sample-hpa
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: sample-deployment
+  minReplicas: 2
+  maxReplicas: 5
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+        type: Utilization
+        averageUtilization: 50
+
+
+
+🗂️ 9. ConfigMap
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sample-config
+data:
+  APP_ENV: production
+  LOG_LEVEL: debug
+
+
+
+🔐 10. Secret
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: sample-secret
+type: Opaque
+data:
+  username: dXNlcm5hbWU=   # base64 encoded
+  password: cGFzc3dvcmQ=
+
+
+
+🏷️ 11. Namespace
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: sample-namespace
+
+

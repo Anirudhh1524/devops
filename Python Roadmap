@@ -1,70 +1,64 @@
 Basic Syntax and Concepts:
 1.Variables
-2.data types (lists, tuples, dictionaries, sets), 
+2.data types (lists, tuples, dictionaries, sets)
 3.operators 
 4.conditional statements (if/elif/else)
 5.loops (for/while)
 
 Functions and Modules: 
-Defining and calling functions
-understanding scope 
-importing and using modules.
+1.Defining and calling functions
+2.understanding scope 
+3.importing and using modules.
 
 Object-Oriented Programming (OOP): 
-Classes,
-objects,
-inheritance,
-polymorphism,
-encapsulation.
+1.Classes
+2.objects
+3.inheritance
+4.polymorphism
+5.encapsulation
 
 Error Handling:
-Using try-except blocks to manage exceptions.
+1.Using try-except blocks to manage exceptions.
 
 File Handling: 
-Reading from and writing to files.
+2.Reading from and writing to files.
 
 Advanced Data Structures:
-Deeper understanding of lists
-dictionaries
-linked lists or trees (for algorithmic problem-solving).
+1.Deeper understanding of lists
+2.dictionaries
+3.linked lists or trees (for algorithmic problem-solving).
 
 Generators and Decorators: 
-Understanding and applying these advanced Python features.
+1.Understanding and applying these advanced Python features.
 
 Regular Expressions:
-Pattern matching for text manipulation.
+1.Pattern matching for text manipulation.
 
 Working with External Libraries: 
-NumPy,
-Pandas, 
-Requests.
+1.NumPy
+2.Pandas 
+3.Requests
 
 Web Development:Frameworks
-Flask
-Django
-FastAPI.
+1.Flask
+2.Django
+3.FastAPI.
 
 Databases: 
-SQL (SQLite, PostgreSQL, MySQL), ORMs (SQLAlchemy, Django ORM).
-Web Concepts: HTTP, APIs (RESTful), authentication (JWT, OAuth).
+SQL (SQLite, PostgreSQL, MySQL)
+ORMs (SQLAlchemy, Django ORM).
+
+Web Concepts: 
+HTTP, APIs (RESTful), authentication (JWT, OAuth).
 
 Data Science/Machine Learning:
-Libraries: Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Keras.
-Concepts: Data cleaning, visualization, statistical analysis, machine learning algorithms, deep learning.
+Libraries: 
+Pandas, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Keras.
+Concepts: 
+Data cleaning, visualization, statistical analysis, machine learning algorithms, deep learning.
 
 Automation/Scripting:
-System Interaction: Working with files, directories, and processes.
-Libraries: os, sys, subprocess.
+System Interaction:
+1.Working with files
+2.directories and processes.
 
-DevOps:
-Tools: Git, Docker, Kubernetes.
-
-Cloud Platforms: AWS, Azure, GCP.
-
-CI/CD: GitHub Actions, GitLab CI/CD.
-
-Continuous Learning and Practice:
-Build Projects: Apply learned concepts by creating personal projects.
-Contribute to Open Source: Gain practical experience and collaborate with other developers.
-Stay Updated: Follow industry trends, new libraries, and best practices.
-Networking: Connect with other developers and mento

@@ -15,7 +15,7 @@ set up inventory file
 private-ip of worker nodes
 
 #edit ansible.cfg
-#paste following code on that file
+#paste following code on that file.
 [defaults]
 inventory = hosts
 host_key_checking = False

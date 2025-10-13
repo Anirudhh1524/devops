@@ -1,0 +1,91 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                // Add build commands here, e.g., mvn clean install
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // Add test commands here, e.g., mvn test
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                // Add deployment commands here
+            }
+        }
+    }
+}
+
+#jenkins
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Code Quality') {
+            steps {
+                echo 'Checking code quality...'
+                // Add code analysis tools here, e.g., SonarQube, ESLint, etc.
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                // Add build commands here, e.g., mvn clean install
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Running tests...'
+                // Add test commands here, e.g., mvn test
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying the application...'
+                // Add deployment commands here
+            }
+        }
+    }
+}
+
+
+Main Stages in a Jenkins Pipeline
+
+1. Checkout / Source Code Retrieval
+   - Pulls the latest code from the version control system (e.g., Git).
+   - Example: `git checkout main`
+
+2. Code Quality / Static Analysis
+   - Runs tools like SonarQube, ESLint, or Checkstyle to analyze code for bugs, style violations, or security issues.
+
+3. Build
+   - Compiles the source code and packages it.
+   - Example tools: Maven, Gradle, npm, make
+
+4. Test
+   - Executes unit tests, integration tests, or functional tests.
+   - Example tools: JUnit, TestNG, PyTest, Selenium
+
+5. Artifact Archiving
+   - Stores build outputs (e.g., JARs, WARs, Docker images) for future deployment or rollback.
+
+6. Deploy
+   - Pushes the application to a staging or production environment.
+   - Example targets: Kubernetes, AWS, Azure, Tomcat
+
+7. Post Actions / Notifications
+   - Sends build status notifications (e.g., Slack, email).
+   - Cleans up resources or triggers downstream jobs.

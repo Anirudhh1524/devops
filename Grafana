@@ -27,3 +27,14 @@ sudo dpkg -i grafana-enterprise_12.1.0_amd64.deb
 
 #to access grafana
 http://localhost:3000
+
+#To check grafana Installed
+grafana-server -v
+
+#To start grafana
+sudo systemctl start grafana
+sudo systemctl start grafana-server
+
+
+
+

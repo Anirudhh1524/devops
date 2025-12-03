@@ -132,7 +132,7 @@ docker service create --name webserver -p 80:80 nginx
 docker service ls
 docker service ps webserver
 
-7. Python Project Dockerfile
+7. Python Project Dockerfile Sample
 
 FROM python:alpine
 WORKDIR /app
@@ -144,4 +144,27 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 COPY . .
 CMD ["flask", "run"]
+
+8. docker-compose for same dockerfile
+
+version: '3.8'
+services:
+  application:
+      build: .
+      container_name : flask_app
+      ports:
+        - '5000:5000'
+      volumes:
+        - .:/app 
+      depends_on:
+        - db
+  db:
+    build: ./database/
+    restart: always
+    environment:
+      MYSQL_DATABASE: event_mgmt
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - '4306:3306'
+
 

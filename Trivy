@@ -1,0 +1,45 @@
+Trivy is an open-source, all-in-one security scanner used to detect vulnerabilities, misconfigurations, secrets, 
+and compliance issues across containers, Kubernetes, code repositories, and cloud environments.
+________________________________________
+What Trivy Does
+•	Vulnerability Scanning (CVE detection): Finds known vulnerabilities in operating system packages and application dependencies.
+•	Misconfiguration Detection: Checks Infrastructure as Code (IaC) files (Terraform, Kubernetes YAML, Dockerfiles) for insecure configurations.
+•	Secrets Scanning: Identifies hardcoded secrets such as API keys or passwords in codebases.
+•	SBOM (Software Bill of Materials): Generates SBOMs to help track dependencies and ensure supply chain security.
+•	Multi-Environment Coverage: Works across container images, file systems, Git repositories, and cloud infrastructure.
+________________________________________
+Key Features
+•	Ease of Use: A single binary installation, no external database dependencies required.
+•	Speed: Designed for fast scans, making it suitable for CI/CD pipelines.
+•	Integration: Works seamlessly with DevOps workflows, GitHub Actions, GitLab CI, Jenkins, and Kubernetes admission controllers.
+•	Open Source: Backed by Aqua Security, widely adopted in the cloud-native community.
+•	Extensibility: Supports plugins and integrations with other security tools.
+________________________________________
+Typical Use Cases
+•	Developers: Quickly check local code or container images before pushing to production.
+•	DevOps Teams: Automate scans in CI/CD pipelines to enforce security gates.
+•	Security Teams: Continuous monitoring of Kubernetes clusters and cloud environments.
+•	Compliance: Generate SBOMs for regulatory requirements like supply chain transparency.
+________________________________________
+ Getting Started
+1.	Install Trivy:
+2.	brew install aquasecurity/trivy/trivy   # macOS
+3.	apt-get install trivy                   # Linux
+Or download the binary from GitHub releases.
+4.	Scan a Container Image:
+5.	trivy image nginx:latest
+6.	Scan a File System or Repository:
+7.	trivy fs .
+8.	trivy repo https://github.com/example/repo
+9.	Generate SBOM:
+10.	trivy sbom --format cyclonedx -o sbom.json nginx:latest
+
+____________________________________________
+To Start Trivy
+sudo systemctl daemon-reload
+sudo systemctl enable trivy
+sudo systemctl start trivy
+
+
+
+

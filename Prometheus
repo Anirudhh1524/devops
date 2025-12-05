@@ -1,7 +1,5 @@
 sudo apt update && sudo apt upgrade -y
 
-
-
 # Create Prometheus user
 sudo useradd --no-create-home --shell /bin/false prometheus
 
@@ -70,12 +68,50 @@ sudo systemctl enable prometheus
 | up == 0                             | Service health check             | Detects if a target is down                  |
 -------------------------------------------------------------------------------------------------------------------------
 
-### Tips for Using PromQL Effectively
+Tips for Using PromQL Effectively
 - Use rate() for counters that only increase.
 - Use irate() for short-term spikes.
 - Combine sum() and by() to group metrics meaningfully.
 - Use label filters to narrow down noisy metrics.
 - Use offset to compare current vs. past values.
 
+
+#You need one single scrape_configs: block with both jobs inside it:
+
+prometheus.yml location
+nano /etc/prometheus/prometheus.yml
+need permission 777
+
+
+#set following as it is change only ip address with your jenkins ip.
+
+# my global config
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  # Prometheus itself
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  # Jenkins job
+  - job_name: "jenkins"
+    metrics_path: /prometheus
+    static_configs:
+      - targets: ["13.62.190.51:8080"]
 
 

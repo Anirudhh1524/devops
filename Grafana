@@ -37,4 +37,26 @@ sudo systemctl start grafana-server
 
 
 
+#Add Prometheus as a Data Source in Grafana
+
+Login → http://IP:3000
+Go to Configuration → Data Sources
+Select Prometheus
+Enter:
+http://localhost:9090
+Click Save & Test
+Import Ready-Made Dashboards
+
+Recommended dashboards:
+Dashboard	ID
+Node Exporter Full	1860
+Prometheus 2.0 Stats	3662
+Linux Server Monitoring	928
+
+Import: Dashboards → Import → Enter ID
+
+
+
+
+
 

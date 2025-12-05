@@ -128,3 +128,53 @@ package_name: __________               #defaults/main.yaml
       vars:
         package_name: ____            # run playbook
 
+**Patch Installations**  
+
+Two Main Approaches
+
+1. Apply a Patch File (Code/File Changes)
+If you have a `.patch` file (created with `diff`), Ansible provides the `ansible.posix.patch` module:
+
+- name: Apply patch to source code
+  ansible.posix.patch:
+    src: /tmp/myfix.patch   # Path to patch file
+    dest: /opt/myapp/file.c # File or directory to patch
+    strip: 1                # Number of leading components to strip
+
+
+- `src` → Path to the patch file.
+- `dest` → Target file/directory where patch should be applied.
+- `strip` → Controls how many leading path components are removed (like `patch -pN`).
+
+This is useful for **source code fixes, configuration changes, or custom patches**.
+
+2. System/OS Patching (Security Updates)
+For Linux servers, you can automate patching by using Ansible’s package modules (`yum`, `dnf`, `apt`) in a playbook:
+
+Example for RHEL/CentOS:
+
+- name: Apply all available updates
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update all packages
+      yum:
+        name: '*'
+        state: latest
+
+
+Example for Ubuntu/Debian:
+
+- name: Apply all available updates
+  hosts: all
+  become: yes
+  tasks:
+    - name: Update all packages
+      apt:
+        upgrade: dist
+        update_cache: yes
+
+
+
+
+

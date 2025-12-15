@@ -1,0 +1,82 @@
+1️⃣ Move website files to web root
+
+Default NGINX web root:
+sudo cp -r Charity-Trust /var/www/html/
+
+Final path should be:
+/var/www/html/Charity-Trust/index.html
+
+
+2️⃣ Create NGINX server block (virtual host)
+
+Create config file:
+
+sudo nano /etc/nginx/sites-available/charity-trust
+
+
+Paste this:
+nginx
+server {
+    listen 80;
+    server_name _;
+
+    root /var/www/html/Charity-Trust;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+Save and exit.
+
+3️⃣ Enable the site
+sudo ln -s /etc/nginx/sites-available/charity-trust /etc/nginx/sites-enabled/
+
+
+4️⃣ Remove default config (important)
+sudo rm /etc/nginx/sites-enabled/default
+
+5️⃣ Test NGINX config
+sudo nginx -t
+
+If output is:
+syntax is ok
+test is successful
+
+Proceed.
+
+6️⃣ Reload NGINX
+sudo systemctl reload nginx
+
+
+Open browser
+http://SERVER-IP
+sudo systemctl status nginx
+sudo systemctl start nginx
+
+
+🔥 Firewall blocking port 80
+
+sudo ufw allow 80
+sudo ufw reload
+
+
+For AWS EC2:
+Open **port 80** in **Security Group**
+🔥 No index.html
+
+Check:
+ls /var/www/html/Charity-Trust
+Must contain:
+index.html
+
+## Quick test (very useful)
+Test locally:
+curl http://localhost
+
+## Interview tip (important)
+
+> NGINX serves files from **/var/www/html**, not from **/etc/nginx**.
+
+

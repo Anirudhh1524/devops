@@ -330,4 +330,15 @@ spec:
       port: 80
       targetPort: 80
 
+6. #Import Existing Aws Infra 
+Manual Method: terraform import (Official & Safe)
+
+resource "aws_instance" "web" {
+  # empty initially
+}
+
+#terraform init
+#terraform import aws_instance.web i-0abc12345xyz
+#terraform show
+#terraform plan
 

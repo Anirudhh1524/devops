@@ -213,3 +213,31 @@ metadata:
   name: sample-namespace
 
 
+
+@ Kubectl VS Helm
+
+------------------------------------
+| Feature     | kubectl   | Helm   |
+| ----------- | -------   | -----  |
+| Deploy apps | Yes       | Yes    |
+| Templating  | ❌ No    | ✅ Yes |
+| Rollback    | ❌ No    | ✅ Yes |
+| Versioning  | ❌ No    | ✅ Yes |
+------------------------------------
+
+
+@ Nginx Vs Ingress
+
+-------------------------------------------------------------------
+| Feature          | NGINX                 | Ingress              |
+| ---------------- | --------------------- | -------------------- |
+| Type             | Software              | Kubernetes object    |
+| Purpose          | Serve & route traffic | Define routing rules |
+| Runs where       | VM, server, container | Inside Kubernetes    |
+| Handles traffic  | ✅ Yes                | ❌ No               |
+| Needs controller | ❌ No                 | ✅ Yes              |
+| Example          | Reverse proxy         | `/app → service`     |
+--------------------------------------------------------------------
+
+
+

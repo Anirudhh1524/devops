@@ -325,6 +325,7 @@ spec:
   type: LoadBalancer
   selector:
     app: mario
+
   ports:
     - protocol: TCP
       port: 80
@@ -341,4 +342,29 @@ resource "aws_instance" "web" {
 #terraform import aws_instance.web i-0abc12345xyz
 #terraform show
 #terraform plan
+
+#hashicorp vault Usage
+ 1. Start Vault in Development Mode
+vault server -dev
+2. Set Environment Variable
+export VAULT_ADDR='http://127.0.0.1:8200'
+export VAULT_TOKEN='your-root-token-here'
+3. Store a Secret
+vault kv put secret/myapp username="admin" password="p@ssw0rd"
+4. Retrieve a Secret
+vault kv get secret/myapp
+5.Enable a Secrets Engine
+vault secrets enable -path=kv kv-v2
+6. Manage Authentication
+vault auth enable userpass
+vault write auth/userpass/users/testuser password="mypassword" policies="default"
+7. Policies
+path "secret/data/myapp" {
+  capabilities = ["read"]
+}
+8.command
+vault policy write myapp myapp.hcl
+9.Verify Setup
+vault status
+
 

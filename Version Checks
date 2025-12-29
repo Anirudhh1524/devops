@@ -1,0 +1,45 @@
+## 🔎 System & Runtime Checks
+1.### Java
+java -version
+
+2.### Jenkins
+jenkins --version
+
+3.### Docker
+docker --version
+
+4.### SonarQube (Docker container)
+Docker ps
+
+5.### Trivy
+trivy --version
+
+6.### Git
+git --version
+git config --global --list
+
+7.### Ansible
+ansible --version
+
+8.### Terraform
+terraform --version
+
+9.### AWS CLI
+aws --version
+
+10.### kubectl
+kubectl version --client
+
+11.### Python 3.12
+python3.12 --version
+
+12.### Grafana
+systemctl status grafana-server
+grafan-server -v
+
+13.### Prometheus
+Prometheus --version
+
+14.### HashiCorp Vault
+vault --version
+

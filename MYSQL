@@ -8,7 +8,7 @@ and User/Privilege Management (CREATE USER, GRANT, REVOKE). Below is a structure
 🔹 Database Management
 •	CREATE DATABASE dbname; → Create a new database
 •	SHOW DATABASES;         → List all databases
-•	USE dbname;             → Switch to a database
+•	USE dbname;             → Switch to a database/select database
 •	DROP DATABASE dbname;   → Delete a database
 
 🔹 Table Management

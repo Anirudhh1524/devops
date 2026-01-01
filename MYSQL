@@ -7,47 +7,56 @@ and User/Privilege Management (CREATE USER, GRANT, REVOKE). Below is a structure
 📌 Core MySQL Commands
 🔹 Database Management
 •	CREATE DATABASE dbname; → Create a new database
-•	SHOW DATABASES; → List all databases
-•	USE dbname; → Switch to a database
-•	DROP DATABASE dbname; → Delete a database
+•	SHOW DATABASES;         → List all databases
+•	USE dbname;             → Switch to a database
+•	DROP DATABASE dbname;   → Delete a database
 
 🔹 Table Management
-•	CREATE TABLE table_name (...); → Create a new table
-•	SHOW TABLES; → List tables in the current database
-•	DESCRIBE table_name; → Show table structure
+•	CREATE TABLE table_name (...);                   → Create a new table
+•	SHOW TABLES;                                     → List tables in the current database
+•	DESCRIBE table_name;                              → Show table structure
 •	ALTER TABLE table_name ADD column_name datatype; → Add a new column
-•	ALTER TABLE table_name DROP column_name; → Remove a column
-•	DROP TABLE table_name; → Delete a table
+•	ALTER TABLE table_name DROP column_name;         → Remove a column
+•	DROP TABLE table_name;                           → Delete a table
 
 🔹 Data Manipulation (DML)
-•	INSERT INTO table_name VALUES (...); → Insert new data
-•	SELECT * FROM table_name; → Retrieve data
+•	INSERT INTO table_name VALUES (...);                → Insert new data
+•	SELECT * FROM table_name;                           → Retrieve data
 •	UPDATE table_name SET column=value WHERE condition; → Update existing data
-•	DELETE FROM table_name WHERE condition; → Delete data
+•	DELETE FROM table_name WHERE condition;             → Delete data
 
 🔹 Data Definition (DDL)
-•	CREATE INDEX idx_name ON table_name(column); → Create an index
-•	DROP INDEX idx_name ON table_name; → Remove an index
+•	CREATE INDEX idx_name ON table_name(column);        → Create an index
+•	DROP INDEX idx_name ON table_name;                  → Remove an index
 
 🔹 User & Privilege Management
-•	CREATE USER 'username'@'host' IDENTIFIED BY 'password'; → Create a new user
-•	GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'host'; → Grant permissions
+•	CREATE USER 'username'@'host' IDENTIFIED BY 'password';   → Create a new user
+•	GRANT ALL PRIVILEGES ON dbname.* TO 'username'@'host';    → Grant permissions
 •	REVOKE ALL PRIVILEGES ON dbname.* FROM 'username'@'host'; → Remove permissions
 •	DROP USER 'username'@'host'; → Delete a user
 
 🔹 MySQL Client Commands (special commands inside mysql> prompt)
 •	\h → Help (list all commands)
-•	\u dbname → Switch database
-•	\q → Quit MySQL client
-•	\c → Clear current input
-•	\d → Set statement delimiter
-•	\G → Display query results vertically
+•	\u dbname   → Switch database
+•	\q          → Quit MySQL client
+•	\c          → Clear current input
+•	\d          → Set statement delimiter
+•	\G          → Display query results vertically
 
 📊 Comparison Table of Key Command Categories
-Category	Examples	Purpose
-Database Management	CREATE DATABASE, USE, DROP	Manage databases
-Table Management	CREATE TABLE, ALTER, DROP	Define and modify tables
-Data Manipulation	INSERT, SELECT, UPDATE, DELETE	Work with data
-User Management	CREATE USER, GRANT, REVOKE, DROP	Control access
-Client Commands	\h, \q, \c, \d, \G	MySQL shell operations
+
+1.Database Management	
+CREATE DATABASE, USE, DROP	Manage databases
+
+2.Table Management	
+CREATE TABLE, ALTER, DROP	Define and modify tables
+
+3.Data Manipulation	
+INSERT, SELECT, UPDATE, DELETE	Work with data
+
+4.User Management
+CREATE USER, GRANT, REVOKE, DROP	Control access
+
+5.Client Commands
+\h, \q, \c, \d, \G	MySQL shell operations
 

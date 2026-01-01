@@ -12,12 +12,12 @@ and User/Privilege Management (CREATE USER, GRANT, REVOKE). Below is a structure
 •	DROP DATABASE dbname;   → Delete a database
 
 🔹 Table Management
-•	CREATE TABLE table_name (...);                   → Create a new table
-•	SHOW TABLES;                                     → List tables in the current database
+•	CREATE TABLE table_name (...);                    → Create a new table
+•	SHOW TABLES;                                      → List tables in the current database
 •	DESCRIBE table_name;                              → Show table structure
-•	ALTER TABLE table_name ADD column_name datatype; → Add a new column
-•	ALTER TABLE table_name DROP column_name;         → Remove a column
-•	DROP TABLE table_name;                           → Delete a table
+•	ALTER TABLE table_name ADD column_name datatype;  → Add a new column
+•	ALTER TABLE table_name DROP column_name;          → Remove a column
+•	DROP TABLE table_name;                            → Delete a table
 
 🔹 Data Manipulation (DML)
 •	INSERT INTO table_name VALUES (...);                → Insert new data

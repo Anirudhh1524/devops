@@ -10,6 +10,7 @@ and User/Privilege Management (CREATE USER, GRANT, REVOKE). Below is a structure
 •	SHOW DATABASES;         → List all databases
 •	USE dbname;             → Switch to a database/select database
 •	DROP DATABASE dbname;   → Delete a database
+> SYSTEM CLS;             → Clear Screen
 
 🔹 Table Management
 •	CREATE TABLE table_name (...);                    → Create a new table

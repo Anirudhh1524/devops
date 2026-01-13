@@ -62,23 +62,23 @@ CREATE USER, GRANT, REVOKE, DROP	Control access
 \h, \q, \c, \d, \G	MySQL shell operations
 
 
-1️⃣ Delete (DROP) a single column from a table
+1️ Delete (DROP) a single column from a table
 If you want to remove the column itself from the table structure:
 ALTER TABLE table_name
 DROP COLUMN column_name;
 
-2️⃣ Delete data from a single column (keep the column)
+2️ Delete data from a single column (keep the column)
 If you want to clear values in a column but keep the column:
 UPDATE table_name
 SET column_name = NULL;
 
-3️⃣ Delete data from a column with condition
+3️ Delete data from a column with condition
 Delete values only for specific rows:
 UPDATE table_name
 SET column_name = NULL
 WHERE condition;
 
-4️⃣ Delete row(s) based on column value
+4️ Delete row(s) based on column value
 If you want to delete entire rows based on a column:
 DELETE FROM table_name
 WHERE column_name = value;
@@ -88,9 +88,10 @@ Use RENAME COLUMN (simplest and safest):
 ALTER TABLE table_name
 RENAME COLUMN old_column_name TO new_column_name;
 
-6. Modify column name + datatype together
+6. Modify column name + datatype together + table name
 ALTER TABLE users
 CHANGE age user_age INT NOT NULL;
+RENAME TABLE table_name TO new_table_name;
 
 
 

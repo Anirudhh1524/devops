@@ -10,6 +10,7 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 #jenkins
+#docker run -d \ --name jenkins \ -p 8080:8080 \ -p 50000:50000 \ -v jenkins_home:/var/jenkins_home \ jenkins/jenkins:lts
 sudo apt-get update -y
 sudo apt-get install jenkins -y
 sudo systemctl start jenkins

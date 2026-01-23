@@ -32,7 +32,6 @@ sudo firewall-cmd --reload
 
 Firewall Setup Commands in Linux
 1. iptables (classic firewall tool)
-Basic Setup
 # Set default policies (deny everything by default)
 sudo iptables -P INPUT DROP
 sudo iptables -P FORWARD DROP
@@ -43,7 +42,7 @@ sudo iptables -A INPUT -i lo -j ACCEPT
 
 # Allow established/related connections
 sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
-Allow Common Services
+
 # Allow SSH (port 22)
 sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
@@ -53,10 +52,9 @@ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 # Allow HTTPS (port 443)
 sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
 
-Block Specific IP
 # Block traffic from 192.168.1.100
 sudo iptables -A INPUT -s 192.168.1.100 -j DROP
-Save Rules
+
 # Save rules permanently (Debian/Ubuntu)
 sudo iptables-save > /etc/iptables/rules.v4
 
@@ -68,7 +66,6 @@ Start & Enable
 sudo systemctl start firewalld
 sudo systemctl enable firewalld
 
-Allow Services
 # Allow SSH
 sudo firewall-cmd --permanent --add-service=ssh
 
@@ -77,12 +74,10 @@ sudo firewall-cmd --permanent --add-service=http
 
 # Allow HTTPS
 sudo firewall-cmd --permanent --add-service=https
-Allow Ports
 
 # Allow custom port (e.g., 8080/tcp)
 sudo firewall-cmd --permanent --add-port=8080/tcp
 
-Block Services
 # Remove SSH access
 sudo firewall-cmd --permanent --remove-service=ssh
 Reload Rules
@@ -91,3 +86,118 @@ List Rules
 
 # List all active rules
 sudo firewall-cmd --list-all
+
+
+🔎 System & Runtime Checks
+1 Java
+java -version
+
+2 Jenkins
+jenkins --version
+
+3 Docker
+docker --version
+
+4 SonarQube (Docker container)
+Docker ps
+
+5 Trivy
+trivy --version
+
+6 Git
+git --version
+git config --global --list
+
+7 Ansible
+ansible --version
+
+8 Terraform
+terraform --version
+
+9 AWS CLI
+aws --version
+
+10 kubectl
+kubectl version --client
+
+11 Python 3.12
+python3.12 --version
+
+12 Grafana
+systemctl status grafana-server
+grafan-server -v
+
+13 Prometheus
+Prometheus --version
+
+14 HashiCorp Vault
+vault --version
+
+Categories of Ubuntu Network Commands
+1. Network Configuration
+
+ip       – Modern replacement for `ifconfig`; configure and show IP addresses, routes.
+ifconfig – Legacy tool for interface configuration.
+nmcli    – Command-line interface for NetworkManager (connect/disconnect Wi-Fi, manage profiles).
+iwconfig – Configure wireless interfaces.
+
+2. Connectivity & Testing
+
+ping                       – Test connectivity to a host.
+traceroute / tracepath     – Show path packets take to a destination.
+curl / wget                – Test HTTP/FTP connectivity and download files.
+mtr                        – Combines `ping` and `traceroute` for continuous monitoring.
+
+3. DNS & Name Resolution
+
+nslookup – Query DNS records.
+dig      – More advanced DNS lookup tool.
+host     – Simple DNS lookup.
+
+4. Network Information
+
+hostname – Display or set system hostname.
+arp      – Show ARP table (IP ↔ MAC mapping).
+ss       - Modern replacement for `netstat`; show socket statistics.
+netstat  – Legacy tool for network connections and routing tables.
+route    – Show or manipulate routing table.
+
+5. Monitoring & Analysis
+
+iftop    – Real-time bandwidth usage per connection.
+nload    – Visual representation of incoming/outgoing traffic.
+tcpdump  – Packet capture for analysis.
+wireshar (GUI) – Advanced packet analysis.
+
+6. Remote Access
+
+ssh  – Secure remote login.
+scp  – Secure file copy.
+sftp – Secure FTP.
+
+7. Security & Utilities
+
+ufw      – Uncomplicated Firewall management.
+iptables – Advanced firewall and packet filtering.
+whois    – Query domain registration info.
+
+
+Comparison Table
+
+---------------------------------------------------------------------
+| **Command** | **Purpose**                      | **Modern/Legacy** |
+|-------------|------------- --------------------|-------------------|
+| `ip`        | Configure IP, routes, interfaces | Modern            |
+| `ifconfig`  | Interface configuration          | Legacy            |
+| `ping`      | Connectivity test                | Modern            |
+| `traceroute`| Path tracing                     | Modern            |
+| `ss`        | Socket statistics                | Modern            |
+| `netstat`   | Network info                     | Legacy            |
+| `dig`       | DNS queries                      | Modern            |
+| `nslookup`  | DNS queries                      | Legacy            |
+| `nmcli`     | Manage connections               | Modern            |
+| `tcpdump`   | Packet capture                   | Modern            |
+----------------------------------------------------------------------
+
+
+

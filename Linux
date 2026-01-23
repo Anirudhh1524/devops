@@ -1,13 +1,13 @@
- ⚙️ Common Firewall Tools in Linux
- 1. iptables
+⚙️ Common Firewall Tools in Linux
+1. iptables
 - Legacy but powerful tool.  
 - Works by defining chains of rules for incoming, outgoing, and forwarded traffic.  
-- Example commands:  
-  
-   Block all incoming traffic by default
+
+- Example commands:    
+  Block all incoming traffic by default
   sudo iptables -P INPUT DROP
 
-   Allow SSH (port 22)
+  Allow SSH (port 22)
   sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
 
    Allow HTTP (port 80)
@@ -18,17 +18,17 @@
 - Uses zones (trusted, public, home, etc.) to group rules.  
 - Example commands:  
 
-   Start and enable firewalld
+  Start and enable firewalld
   sudo systemctl start firewalld
   sudo systemctl enable firewalld
 
-   Allow SSH
+  Allow SSH
   sudo firewall-cmd --permanent --add-service=ssh
 
-   Allow HTTP
+  Allow HTTP
   sudo firewall-cmd --permanent --add-service=http
    Reload to apply changes
-  sudo firewall-cmd --reload
+sudo firewall-cmd --reload
 
 Firewall Setup Commands in Linux
 1. iptables (classic firewall tool)
@@ -52,6 +52,7 @@ sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
 # Allow HTTPS (port 443)
 sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+
 Block Specific IP
 # Block traffic from 192.168.1.100
 sudo iptables -A INPUT -s 192.168.1.100 -j DROP
@@ -66,6 +67,7 @@ sudo service iptables save
 Start & Enable
 sudo systemctl start firewalld
 sudo systemctl enable firewalld
+
 Allow Services
 # Allow SSH
 sudo firewall-cmd --permanent --add-service=ssh
@@ -76,13 +78,16 @@ sudo firewall-cmd --permanent --add-service=http
 # Allow HTTPS
 sudo firewall-cmd --permanent --add-service=https
 Allow Ports
+
 # Allow custom port (e.g., 8080/tcp)
 sudo firewall-cmd --permanent --add-port=8080/tcp
+
 Block Services
 # Remove SSH access
 sudo firewall-cmd --permanent --remove-service=ssh
 Reload Rules
 sudo firewall-cmd --reload
 List Rules
+
 # List all active rules
 sudo firewall-cmd --list-all

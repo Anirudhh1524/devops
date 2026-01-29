@@ -80,3 +80,11 @@ Always create branches from main:
 git checkout main
 git checkout -b master
 
+Suppose Main Repo Deleted And you Want To add your code in new repo.
+Recommended Fix (safe & correct)
+1️⃣ Pull remote changes first (rebase is best)
+git pull origin main --rebase
+
+2️⃣ Push again
+git push origin main
+

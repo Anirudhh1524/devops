@@ -10,9 +10,6 @@ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]" \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
 
 #jenkins
-#docker pull jenkins/jenkins:lts
-#docker run -d \ --name jenkins \ -p 8080:8080 \ -p 50000:50000 \ -v jenkins_home:/var/jenkins_home \ jenkins/jenkins:lts
-#docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 sudo apt-get update -y
 sudo apt-get install jenkins -y
 sudo systemctl start jenkins
@@ -26,6 +23,9 @@ sudo chmod 777 /var/run/docker.sock
 
 #sonar
 docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+#docker pull jenkins/jenkins:lts
+#docker run -itd --name jenkins -p 8080:8080 jenkins/jenkins:lts
+#docker exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 
 #trivy
 sudo apt-get install wget apt-transport-https gnupg lsb-release -y

@@ -1,6 +1,9 @@
 #!/bin/bash
 sudo apt update -y
 
+#Network tools
+sudo apt install net-tools -y
+
 #java
 sudo apt install fontconfig openjdk-21-jre  -y
 sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc \

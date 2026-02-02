@@ -96,6 +96,7 @@ sudo make altinstall
 #Mysql
 sudo apt update -y
 sudo apt install mysql-client-core-8.0 -y
+sudo apt install mysql-server -y
 
 #grafana
 sudo apt-get install -y apt-transport-https software-properties-common wget

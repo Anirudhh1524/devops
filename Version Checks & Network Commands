@@ -94,6 +94,15 @@ ufw      – Uncomplicated Firewall management.
 iptables – Advanced firewall and packet filtering.
 whois    – Query domain registration info.
 
+### 7. kill program
+
+sudo pkill - programname
+sudo pkill -f programname
+sudo kill - PID (PID Check Using htop)
+
+### 8. Port Availiblity Check
+
+sudo ss -tulpn | grep port_number
 
 ## Comparison Table
 

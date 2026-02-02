@@ -43,6 +43,9 @@ Prometheus --version
 14.### HashiCorp Vault
 vault --version
 
+15.### Mysql
+mysql --version
+
 ## 🔑 Categories of Ubuntu Network Commands
 ### 1. **Network Configuration**
 

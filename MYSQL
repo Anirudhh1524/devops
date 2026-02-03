@@ -93,6 +93,10 @@ ALTER TABLE users
 CHANGE age user_age INT NOT NULL;
 RENAME TABLE table_name TO new_table_name;
 
+7. Create User Mysql
+SELECT user, host FROM mysql.user;
+
+
 
 
 

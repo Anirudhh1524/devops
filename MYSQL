@@ -1,10 +1,5 @@
 
-MySQL commands can be grouped into categories like Database Management (CREATE, DROP, USE), 
-Table Management (CREATE TABLE, ALTER, DROP), Data Manipulation (INSERT, UPDATE, DELETE, SELECT),
-and User/Privilege Management (CREATE USER, GRANT, REVOKE). Below is a structured list of the most important MySQL commands you’ll use.
-
-
-📌 Core MySQL Commands
+Core MySQL Commands
 🔹 Database Management
 •	CREATE DATABASE dbname; → Create a new database
 •	SHOW DATABASES;         → List all databases
@@ -94,7 +89,12 @@ CHANGE age user_age INT NOT NULL;
 RENAME TABLE table_name TO new_table_name;
 
 7. Create User Mysql
-SELECT user, host FROM mysql.user;
+SELECT user, host FROM mysql.user
+
+8. Import database in linux
+mysql -u username -p database_name < backup.sql
+
+
 
 
 

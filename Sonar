@@ -14,7 +14,27 @@ sudo mv sonar-scanner-5.0.1.3006-linux sonar-scanner
 
 4. Set Environment Variable
 nano ~/.bashrc
+
+5. Add these lines at the end
 export SONAR_SCANNER_HOME=/opt/sonar-scanner
 export PATH=$PATH:$SONAR_SCANNER_HOME/bin
 
+6. Apply changes
 source ~/.bashrc
+
+7. Verify Installation
+sonar-scanner -v
+
+8.Configure SonarScanner
+sudo nano /opt/sonar-scanner/conf/sonar-scanner.properties
+
+9.Set your SonarQube server:
+sonar.host.url=http://localhost:9000
+
+10. Run Sonar Scan
+Inside your project folder:
+sonar-scanner \
+  -Dsonar.projectKey=my_project \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=YOUR_TOKEN

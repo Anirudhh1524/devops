@@ -1,0 +1,20 @@
+1. Install Java
+sudo apt update
+sudo apt install openjdk-17-jdk -y
+
+2. Download Sonar Scanner
+cd /opt
+sudo wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+
+3. Extract Package
+sudo apt install unzip -y
+sudo unzip sonar-scanner-cli-5.0.1.3006-linux.zip
+
+sudo mv sonar-scanner-5.0.1.3006-linux sonar-scanner
+
+4. Set Environment Variable
+nano ~/.bashrc
+export SONAR_SCANNER_HOME=/opt/sonar-scanner
+export PATH=$PATH:$SONAR_SCANNER_HOME/bin
+
+source ~/.bashrc

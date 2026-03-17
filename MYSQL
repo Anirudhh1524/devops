@@ -17,7 +17,7 @@ Core MySQL Commands
 
 🔹 Data Manipulation (DML)
 •	INSERT INTO table_name VALUES (...);                → Insert new data
-•	SELECT * FROM table_name;                           → Retrieve data
+•	SELECT * FROM table_name;                           → Retrieve data (check data inside table)
 •	UPDATE table_name SET column=value WHERE condition; → Update existing data
 •	DELETE FROM table_name WHERE condition;             → Delete data
 

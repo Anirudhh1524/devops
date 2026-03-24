@@ -42,19 +42,19 @@ Core MySQL Commands
 📊 Comparison Table of Key Command Categories
 
 1.Database Management	
-CREATE DATABASE, USE, DROP	Manage databases
+CREATE DATABASE, USE, DROP	-----------------------Manage databases
 
 2.Table Management	
-CREATE TABLE, ALTER, DROP	Define and modify tables
+CREATE TABLE, ALTER, DROP	------------------------------Define and modify tables
 
 3.Data Manipulation	
-INSERT, SELECT, UPDATE, DELETE	Work with data
+INSERT, SELECT, UPDATE, DELETE	----------------------------Work with data
 
 4.User Management
-CREATE USER, GRANT, REVOKE, DROP	Control access
+CREATE USER, GRANT, REVOKE, DROP	---------------------------Control access
 
 5.Client Commands
-\h, \q, \c, \d, \G	MySQL shell operations
+\h, \q, \c, \d, \G	MySQL ----------------------------------shell operations
 
 
 1️ Delete (DROP) a single column from a table

@@ -1,0 +1,85 @@
+url -fsSL https://tailscale.com/install.sh | sh
+
+Start the daemon
+#sudo systemctl enable --now tailscaled
+
+Check status:
+#sudo systemctl status tailscaled
+
+Connect to your tailnet
+#sudo tailscale up
+
+Basic Commands
+Check connection status
+#tailscale status
+
+Show your Tailscale IP
+#tailscale ip
+
+IPv4 only:
+#tailscale ip -4
+
+IPv6 only:
+tailscale ip -6
+
+View version
+#tailscale version
+
+Network diagnostics
+#tailscale netcheck
+
+Ping another Tailscale device
+#tailscale ping hostname
+
+Example:
+tailscale ping server1
+
+List available exit nodes:
+#tailscale exit-node list
+
+Get a recommended exit node:
+#tailscale exit-node suggest
+
+File Transfer (Taildrop)
+Send a file:
+#tailscale file cp myfile.txt hostname:
+
+Receive files:
+#tailscale file get .
+Login / Logout
+
+Logout:
+#tailscale logout
+
+Login again:
+#tailscale login
+
+Disconnect / Reconnect
+Disconnect:
+#sudo tailscale down
+
+Reconnect:
+#sudo tailscale up
+
+Update Tailscale
+#sudo tailscale update
+
+Update without prompts:
+#sudo tailscale update --yes
+
+Useful Ubuntu Troubleshooting Commands
+Check daemon logs:
+#sudo journalctl -u tailscaled -f
+
+Restart Tailscale:
+#sudo systemctl restart tailscaled
+
+Verify daemon is running:
+#sudo systemctl is-active tailscaled
+
+To see all available commands:
+#tailscale --help
+
+or for a specific command:
+#tailscale status --help
+

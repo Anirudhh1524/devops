@@ -1,0 +1,41 @@
+# Show version
+cloudflared version
+
+# Show help
+cloudflared help
+
+# Login to Cloudflare
+cloudflared tunnel login
+
+# Create a tunnel
+cloudflared tunnel create my-tunnel
+
+# List tunnels
+cloudflared tunnel list
+
+# Show tunnel details
+cloudflared tunnel info my-tunnel
+
+# Run a tunnel
+cloudflared tunnel run my-tunnel
+
+# Run with config file
+cloudflared tunnel --config config.yml run my-tunnel
+
+# Create DNS route
+cloudflared tunnel route dns my-tunnel app.example.com
+
+# Stream tunnel logs
+cloudflared tail <TUNNEL-UUID>
+
+# Remove stale connections
+cloudflared tunnel cleanup my-tunnel
+
+# Delete tunnel
+cloudflared tunnel delete my-tunnel
+
+# Update cloudflared
+cloudflared update
+
+tunnel help
+#cloudflared tunnel help

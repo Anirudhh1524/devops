@@ -1,0 +1,29 @@
+#Check firewall status:
+sudo ufw status
+
+#More detailed output:
+sudo ufw status verbose
+
+#sudo iptables -L
+sudo nft list ruleset
+
+Useful UFW commands:
+
+# Enable firewall
+sudo ufw enable
+
+# Disable firewall
+sudo ufw disable
+
+# Allow SSH
+sudo ufw allow ssh
+
+# Allow a port
+sudo ufw allow 8080
+
+# Reload rules
+sudo ufw reload
+
+#To see whether UFW is installed:
+which ufw
+

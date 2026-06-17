@@ -39,3 +39,12 @@ cloudflared update
 
 tunnel help
 #cloudflared tunnel help
+
+cloudflared tunnel login
+cloudflared tunnel create nivioindia-tunnel
+cloudflared tunnel list
+cloudflared tunnel info nivioindia-tunnel
+cd ~/.cloudflared/
+nano ~/.cloudflared/config.yml
+cloudflared tunnel ingress validate
+cloudflared tunnel run

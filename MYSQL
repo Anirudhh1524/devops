@@ -94,6 +94,9 @@ check available users : SELECT user, host FROM mysql.user
 8. Import database in linux
 mysql -u username -p database_name < backup.sql
 
+9. setup path in windows.(mysql recognise issue)
+#set PATH=C:\Program Files\MySQL\MySQL Server 8.0\bin;%PATH%
+
 
 
 

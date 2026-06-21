@@ -199,5 +199,24 @@ Comparison Table
 | `tcpdump`   | Packet capture                   | Modern            |
 ----------------------------------------------------------------------
 
+8.check running jobs 
+#jobs
+
+9.run jobs in baground (gunicorn)
+#bg
+
+10.restart jobs 
+#fg
+
+sudo apt update -y
+sudo systemctl restart nginx
+sudo systemctl restart myproject
+sudo systemctl daemon-reload
+sudo systemctl daemon-reexec
+sudo systemctl start grafana-server
+sudo systemctl start prometheus
+sudo chmod 777 /var/run/docker.sock
+docker start sonar
+docker start jenkins
 
 

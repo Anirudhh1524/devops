@@ -97,6 +97,12 @@ mysql -u username -p database_name < backup.sql
 9. setup path in windows.(mysql recognise issue)
 #set PATH=C:\Program Files\MySQL\MySQL Server 8.0\bin;%PATH%
 
+CREATE DATABASE mydb;
+CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON mydb.* TO 'myuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+
 
 
 
